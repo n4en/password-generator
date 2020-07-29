@@ -1,0 +1,78 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="Naveen Thurimerla" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <script src="{% static 'vendor\jQuery\jquery-3.5.1.min.js' %}"></script>
+
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Password Generator</a>
+  </nav>
+
+  <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+
+      <div class="container">
+        <div class="text-center card card-body">
+          <h1>
+
+            <small><strong>{{ opt_password }} </strong> </small>
+
+          </h1>
+
+        </div>
+
+      </div>
+
+      <div class="container">
+
+        <div class="card card-body">
+
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {{ password_generator_request|crispy }}
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; Naveen Thurimerla</p>
+  </footer>
+
+  <!-- Vendor Scripts -->
+
+  <script src="{% static 'vendor\bootstrap\js\bootstrap.bundle.min.js' %}"></script>
+
+
+</body>
+
+</html>
