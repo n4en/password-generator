@@ -6,7 +6,7 @@ import string
 
 def index(request, *args, **kwargs):
     opt_password = ''.join(random.choice(
-        string.ascii_letters + string.digits + string.punctuation) for i in range(12))
+        string.ascii_letters + string.digits + string.punctuation) for i in range(16))
 
     if request.method == 'POST':
         password_generator_request = RandomPasswordGeneratorForm(request.POST)
